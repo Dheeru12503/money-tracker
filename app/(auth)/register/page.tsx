@@ -34,10 +34,17 @@ export default function Register() {
       <div className="relative space-y-3"><Feature text="Track every expense in one place"/><Feature text="Plan monthly budgets with confidence"/><Feature text="Discover clear spending insights"/></div>
     </section>
 
-    <section className="flex min-h-screen items-center justify-center px-5 py-10 sm:px-10"><div className="w-full max-w-md">
-      <Link href="/" className="mb-8 flex items-center gap-3 lg:hidden"><div className="grid size-10 place-items-center rounded-xl bg-indigo-600 text-white"><ShieldCheck size={21}/></div><span className="font-bold text-slate-950">Paise Tracker</span></Link>
-      <div><p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-500">Get started</p><h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">Create your account</h1><p className="mt-2 text-sm text-slate-400">It only takes a minute to begin.</p></div>
-      <form onSubmit={submit} className="mt-7">
+    <section className="min-h-screen bg-[#f7f8fc] px-0 py-0 md:bg-[#eef0f7] md:px-8 md:py-10 lg:flex lg:min-h-screen lg:items-center lg:justify-center lg:px-10 lg:py-10"><div className="mx-auto w-full max-w-md md:max-w-2xl md:overflow-hidden md:rounded-[28px] md:bg-white md:shadow-[0_24px_80px_rgba(15,23,42,0.10)] lg:max-w-md lg:overflow-visible lg:bg-transparent lg:shadow-none">
+      <div className="relative overflow-hidden bg-[#171827] px-5 pb-7 pt-[max(1.25rem,env(safe-area-inset-top))] md:px-10 md:pb-9 md:pt-9 lg:hidden">
+        <div className="absolute -right-20 -top-20 size-52 rounded-full bg-indigo-500/20 blur-3xl" />
+        <Link href="/" className="relative flex items-center gap-3 text-white"><div className="grid size-10 place-items-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600"><ShieldCheck size={21}/></div><span className="font-bold">Paise Tracker</span></Link>
+        <p className="relative mt-7 text-[10px] font-bold uppercase tracking-[0.18em] text-indigo-300">Get started</p>
+        <h1 className="relative mt-2 text-2xl font-bold leading-tight text-white md:text-3xl">Take control of your finances.</h1>
+        <p className="relative mt-2 text-xs leading-5 text-slate-400">Create an account in just a minute.</p>
+      </div>
+      <div className="px-5 pb-8 pt-7 sm:px-7 md:px-10 md:pb-10 lg:p-0">
+        <div className="hidden lg:block"><p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-500">Get started</p><h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">Create your account</h1><p className="mt-2 text-sm text-slate-400">It only takes a minute to begin.</p></div>
+      <form onSubmit={submit} className="mt-7 lg:mt-7">
         {message && <div className={`mb-5 rounded-xl border px-4 py-3 text-sm font-medium ${success ? "border-emerald-100 bg-emerald-50 text-emerald-700" : "border-red-100 bg-red-50 text-red-600"}`}>{message}{success && <Link href="/login" className="ml-1 font-bold underline">Sign in now</Link>}</div>}
         <AuthField label="Full name" icon={<UserRound size={18}/>}><input required value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} disabled={loading} autoComplete="name" placeholder="Your full name"/></AuthField>
         <div className="mt-4"><AuthField label="Email address" icon={<Mail size={18}/>}><input required type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} disabled={loading} autoComplete="email" placeholder="you@example.com"/></AuthField></div>
@@ -47,6 +54,7 @@ export default function Register() {
         <button disabled={loading} className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 disabled:cursor-wait disabled:opacity-75">{loading && <LoaderCircle size={18} className="animate-spin"/>}{loading ? "Creating account..." : <>Create account <ArrowRight size={17}/></>}</button>
       </form>
       <p className="mt-6 text-center text-sm text-slate-400">Already have an account? <Link href="/login" className="font-bold text-indigo-600 hover:text-indigo-700">Sign in</Link></p>
+      </div>
     </div></section>
   </main>;
 }
