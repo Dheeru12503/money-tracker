@@ -24,3 +24,13 @@ button { cursor: pointer; }
 }
 .input:focus { border-color: #818cf8; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); }
 @keyframes wave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(14deg); } }
+@keyframes expense-page-next {
+  from { opacity: 0; transform: translateX(18px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes expense-page-previous {
+  from { opacity: 0; transform: translateX(-18px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.expense-page-next { animation: expense-page-next 260ms cubic-bezier(.2,.8,.2,1); }
+.expense-page-previous { animation: expense-page-previous 260ms cubic-bezier(.2,.8,.2,1); }
